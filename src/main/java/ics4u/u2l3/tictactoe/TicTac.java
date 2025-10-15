@@ -71,6 +71,7 @@ public class TicTac {
 		canPlace = true;
 		bsize = 3;
 		turnX = true;
+		onePlayer = true;
 		resetStats();
 		cp = new ComputerPlayer();
 		cp.boardSize = bsize;
@@ -197,7 +198,7 @@ public class TicTac {
 		int forward = moveRes[0][0];
 		int backward = moveRes[0][1];
 		//Builds the winning line of coordinates
-		for(int i = 0; i < backward + forward + 1; i++) { 
+		for(int i = 0; i < inaRow; i++) { 
 			ret[i][0] = ind1 + offset[0] * (i - backward); 
 			ret[i][1] = ind2 + offset[1] * (i - backward);
 		}
