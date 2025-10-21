@@ -1,7 +1,7 @@
 <h1>Generalizes Tic Tac Toe (n,m,k game)</h1>
 <b>Try the live demo</b>: <a href="https://buydrpepper.github.io/generalizedtictac/">https://buydrpepper.github.io/generalizedtictac/</a> </br>
 Usage: Download the release and run the .jar file. Alternatively, download and run on the latest netbeans IDE<br/>
-<p><b>Note:</b> There is currently a bug in the computer player logic where it underestimates lines by one turn when there are two free ends. This means that if you can get a line with (winninglength-2) and 2 free ends, you will probably win by trying to complete the line.</p>
+<p><b>Note:</b> There is currently a bug in the computer player logic where it underestimates lines by one turn when there are two free ends. This means that if you can get a line with (winninglength-2) and 2 free ends, the computer might play an attacking move instead of trying to block</p>
 
 <h2>About</h2>
 <p>-This is a game I made for a school assignment a while back. Try a variety of board sizes and winning lengths.</p>
