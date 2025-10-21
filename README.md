@@ -1,5 +1,5 @@
 <h1>Generalizes Tic Tac Toe (n,m,k game)</h1>
-Try the live demo: <a href="https://buydrpepper.github.io/generalizedtictac/">https://buydrpepper.github.io/generalizedtictac/</a> </br>
+<b>Try the live demo</b>: <a href="https://buydrpepper.github.io/generalizedtictac/">https://buydrpepper.github.io/generalizedtictac/</a> </br>
 Usage: Download the release and run the .jar file. Alternatively, download and run on the latest netbeans IDE<br/>
 
 <h2>About</h2>
