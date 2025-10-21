@@ -1,1 +1,2 @@
-Hi! if you're reading this, it means that I have yet to upload this project on github. This is because this project was done as a course project, which I have to request to redownload. Expect to see this uploaded within a week of viewing this message. If you're curious, feel free to ask me about it!
+Usage: Download and run on the latest netbeans IDE
+Live demo coming soon!
