@@ -48,7 +48,7 @@ public class GameWindow extends javax.swing.JFrame {
 		playerOneFirst = true; 
 
 		setupNewBoard(); 
-		game.setPlayerComputer(false); 
+		game.setPlayerComputer(true); 
 	}
 
 	boolean playerOneFirst; 
@@ -204,18 +204,17 @@ public class GameWindow extends javax.swing.JFrame {
                 jTextField2 = new javax.swing.JTextField();
                 btnLen = new javax.swing.JButton();
                 btnSize = new javax.swing.JButton();
-                btnPlayerMode = new javax.swing.JButton();
+                btnSelfPlay = new javax.swing.JButton();
                 btnClearBoard = new javax.swing.JButton();
                 btnResetStat = new javax.swing.JButton();
                 btnPlayFirst = new javax.swing.JButton();
                 labelInaRow = new javax.swing.JLabel();
-                btnPlayFirst1 = new javax.swing.JButton();
+                btnPlayerMode = new javax.swing.JButton();
                 btnStat1 = new javax.swing.JButton();
                 labelSize = new javax.swing.JLabel();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                 setTitle("Tic Tac Toe");
-                setPreferredSize(new java.awt.Dimension(1451, 1080));
 
                 panelMain.setBackground(new java.awt.Color(0, 0, 0));
                 panelMain.setForeground(new java.awt.Color(51, 51, 255));
@@ -329,15 +328,15 @@ public class GameWindow extends javax.swing.JFrame {
                         }
                 });
 
-                btnPlayerMode.setBackground(java.awt.Color.black);
-                btnPlayerMode.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-                btnPlayerMode.setForeground(java.awt.Color.green);
-                btnPlayerMode.setText("Switch to One Player Mode");
-                btnPlayerMode.setBorder(null);
-                btnPlayerMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                btnPlayerMode.addActionListener(new java.awt.event.ActionListener() {
+                btnSelfPlay.setBackground(java.awt.Color.black);
+                btnSelfPlay.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+                btnSelfPlay.setForeground(java.awt.Color.green);
+                btnSelfPlay.setText("Toggle computer selfplay (for fun)");
+                btnSelfPlay.setBorder(null);
+                btnSelfPlay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                btnSelfPlay.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnPlayerModeActionPerformed(evt);
+                                btnSelfPlayActionPerformed(evt);
                         }
                 });
 
@@ -383,15 +382,15 @@ public class GameWindow extends javax.swing.JFrame {
                 labelInaRow.setText("3 in a row");
                 labelInaRow.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-                btnPlayFirst1.setBackground(java.awt.Color.black);
-                btnPlayFirst1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-                btnPlayFirst1.setForeground(java.awt.Color.green);
-                btnPlayFirst1.setText("Toggle computer selfplay (for fun)");
-                btnPlayFirst1.setBorder(null);
-                btnPlayFirst1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                btnPlayFirst1.addActionListener(new java.awt.event.ActionListener() {
+                btnPlayerMode.setBackground(java.awt.Color.black);
+                btnPlayerMode.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+                btnPlayerMode.setForeground(java.awt.Color.green);
+                btnPlayerMode.setText("Switch to Two Player Mode");
+                btnPlayerMode.setBorder(null);
+                btnPlayerMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                btnPlayerMode.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnPlayFirst1ActionPerformed(evt);
+                                btnPlayerModeActionPerformed(evt);
                         }
                 });
 
@@ -423,7 +422,7 @@ public class GameWindow extends javax.swing.JFrame {
                                         .addComponent(labelGame, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnLen)
                                         .addComponent(btnSize)
-                                        .addComponent(btnPlayerMode)
+                                        .addComponent(btnSelfPlay)
                                         .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addGroup(panelMainLayout.createSequentialGroup()
                                                         .addComponent(labelSize, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -439,7 +438,7 @@ public class GameWindow extends javax.swing.JFrame {
                                                         .addComponent(btnStat)
                                                         .addGap(103, 103, 103)
                                                         .addComponent(btnStat1)))
-                                        .addComponent(btnPlayFirst1)
+                                        .addComponent(btnPlayerMode)
                                         .addComponent(btnPlayFirst)
                                         .addComponent(btnResetStat)
                                         .addComponent(btnClearBoard))
@@ -458,7 +457,7 @@ public class GameWindow extends javax.swing.JFrame {
                                                         .addComponent(labelInaRow)
                                                         .addComponent(labelSize))
                                                 .addGap(18, 18, 18)
-                                                .addComponent(btnPlayFirst1)
+                                                .addComponent(btnPlayerMode)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(btnPlayFirst)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -480,7 +479,7 @@ public class GameWindow extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(btnLen)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnPlayerMode))
+                                                .addComponent(btnSelfPlay))
                                         .addComponent(panelContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
@@ -538,14 +537,23 @@ public class GameWindow extends javax.swing.JFrame {
 		labelSize.setText(game.getSize() + "x" + game.getSize()); 
         }//GEN-LAST:event_btnSizeActionPerformed
 
-        private void btnPlayerModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerModeActionPerformed
-		consolelog(game.setPlayerComputer(!game.onePlayer)); 
-		String msg = "Switch to "; 
-		msg += !game.onePlayer ? "One" : "Two"; 
-		msg += " Player mode"; 
-		btnPlayerMode.setText(msg); 
-		updateBtnPlayFirst(); 
-        }//GEN-LAST:event_btnPlayerModeActionPerformed
+        private void btnSelfPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelfPlayActionPerformed
+
+		if(timerSelfPlay != null && timerSelfPlay.isRunning()) { 
+			consolelog("Stopped self play."); 
+			timerSelfPlay.stop(); 
+			return; 
+		}
+		consolelog("Performing self play until toggled off or game finishes"); 
+		timerSelfPlay = new javax.swing.Timer(3000/(game.getSize() * game.getSize()), null); 
+		timerSelfPlay.addActionListener(e-> { 
+			if(cpMatch()){ 
+				timerSelfPlay.stop(); 
+			}
+		});
+		timerSelfPlay.setRepeats(true); 
+		timerSelfPlay.start(); 
+        }//GEN-LAST:event_btnSelfPlayActionPerformed
 
         private void btnClearBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearBoardActionPerformed
 		if(timerSelfPlay!= null) timerSelfPlay.stop(); 
@@ -610,22 +618,14 @@ public class GameWindow extends javax.swing.JFrame {
 
 
 	
-        private void btnPlayFirst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayFirst1ActionPerformed
-		if(timerSelfPlay != null && timerSelfPlay.isRunning()) { 
-			consolelog("Stopped self play."); 
-			timerSelfPlay.stop(); 
-			return; 
-		}
-		consolelog("Performing self play until toggled off or game finishes"); 
-		timerSelfPlay = new javax.swing.Timer(3000/(game.getSize() * game.getSize()), null); 
-		timerSelfPlay.addActionListener(e-> { 
-			if(cpMatch()){ 
-				timerSelfPlay.stop(); 
-			}
-		});
-		timerSelfPlay.setRepeats(true); 
-		timerSelfPlay.start(); 
-        }//GEN-LAST:event_btnPlayFirst1ActionPerformed
+        private void btnPlayerModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerModeActionPerformed
+		consolelog(game.setPlayerComputer(!game.onePlayer)); 
+		String msg = "Switch to "; 
+		msg += !game.onePlayer ? "One" : "Two"; 
+		msg += " Player mode"; 
+		btnPlayerMode.setText(msg); 
+		updateBtnPlayFirst(); 
+        }//GEN-LAST:event_btnPlayerModeActionPerformed
 	
         private void btnStat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStat1ActionPerformed
 		txtDialog.setText("> Here are a couple sizes to try\n"
@@ -676,9 +676,9 @@ public class GameWindow extends javax.swing.JFrame {
         private javax.swing.JButton btnClearBoard;
         private javax.swing.JButton btnLen;
         private javax.swing.JButton btnPlayFirst;
-        private javax.swing.JButton btnPlayFirst1;
         private javax.swing.JButton btnPlayerMode;
         private javax.swing.JButton btnResetStat;
+        private javax.swing.JButton btnSelfPlay;
         private javax.swing.JButton btnSize;
         private javax.swing.JButton btnStat;
         private javax.swing.JButton btnStat1;
